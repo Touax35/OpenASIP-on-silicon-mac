@@ -1,0 +1,3 @@
+[submodule "openasip-devel"]
+	path = openasip-devel
+	url = https://github.com/cpc/openasip.git
