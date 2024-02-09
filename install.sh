@@ -46,6 +46,13 @@ done
 
 export image="openasip-x64"
 
+if ! [ -d openasip-devel ]
+	then
+		f_echo "Cloning OpenASIP from github into openasip-devel"
+                (cd openasip-devel ; git submodule update --init --recursive)
+fi
+
+
 # Build the Docker image according to the dockerfile
 f_echo "Building Docker image"
 docker build -t $image .
