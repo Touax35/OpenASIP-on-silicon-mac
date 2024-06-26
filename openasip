@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+_DISPLAY="host.docker.internal:0"
+_DISPLAY=$(ifconfig | grep "inet " | grep -v "inet 127.0.0.1" | awk '{print $2":0"}')
+_PWD=$(pwd)
+
+docker build --tag openasip_amd64:20.04 .
+docker run --rm -it --net=host --env DISPLAY="$_DISPLAY" -v $_PWD:/home/user openasip_amd64:20.04
+
+exit
+docker rm openasipcontainer
+docker image rm openasip_amd64:20.04
+

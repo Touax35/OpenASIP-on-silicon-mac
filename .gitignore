@@ -2,3 +2,6 @@
 .bash_history
 .sudo_as_admin_successful
 .dbus/
+.cache/
+.config/
+.bash_history
